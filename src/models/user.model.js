@@ -1,21 +1,28 @@
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
     trim: true,
+    unique: true,
+    lowercase: true,
+    index: true,
     
   },
   email: {
     type: String,
     required: true,
     trim: true,
+    unique: true,
+    lowercase: true,
 
   },
   fullName : {
     type: String,
     required: true,
+    index: true,
+    trim: true,
 
   },
   avatar: {
@@ -35,7 +42,7 @@ const userSchema = new mongoose.Schema({
 
   },
   watchHistory: [{
-    type : mongoose.Schema.Types.ObjectId,
+    type : Schema.Types.ObjectId,
     ref: "Video"
   }]
 },
