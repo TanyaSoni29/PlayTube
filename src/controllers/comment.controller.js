@@ -48,7 +48,8 @@ const getVideoComments = asyncHandler(async (req, res) => {
 
 const addComment = asyncHandler(async (req, res) => {
   // TODO: add a comment to a video
-  const { content, videoId } = req.body;
+  const { videoId } = req.params;
+  const { content } = req.body;
   const ownerId = req.user._id;
   if (!content || !videoId || !ownerId)
     throw new ApiError(401, "All Fields are required!");
