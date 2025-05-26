@@ -1,4 +1,4 @@
-import mongoose, { isValidObjectId } from "mongoose";
+import { isValidObjectId } from "mongoose";
 import { Like } from "../models/like.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -128,7 +128,7 @@ const getLikedVideos = asyncHandler(async (req, res) => {
       .json(new ApiResponse(404, [], "No liked videos found"));
   }
 
-  return res
+  res
     .status(200)
     .json(new ApiResponse(200, likedVideos, "Liked Videos fetch successfully"));
 });

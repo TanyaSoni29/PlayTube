@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJWT } from "../middlewares/auth.middleware";
+import { verifyJwt } from "../middlewares/auth.middleware";
 import {
   addVideoToPlaylist,
   createPlaylist,
@@ -12,7 +12,7 @@ import {
 
 const router = Router();
 
-router.use(verifyJWT);
+router.use(verifyJwt);
 
 router.route("/").post(createPlaylist);
 
